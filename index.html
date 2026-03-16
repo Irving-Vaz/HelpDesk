@@ -19,9 +19,9 @@
             </div>
 
             <!-- Login Form -->
-            <form id="frmLogin" method="post" onsubmit="return loginUsuario()">
+            <form id="frmLogin" method="POST" onsubmit="return loginUsuario()">
                 <input type="text" id="login" class="fadeIn second" name="login" placeholder="username" required>
-                <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" required>
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" required>
                 <input type="submit" class="fadeIn fourth" value="Entrar">
             </form>
 
@@ -53,6 +53,7 @@
 
     <script src="public/jquery/jquery-3.6.0.min.js"></script>
     <script src="public/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="public/sweetalert2/sweetalert2@11.js"></script>
     <script src="public/JS/usuarios/login.js"></script> 
     
 </body>
