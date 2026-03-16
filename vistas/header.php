@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,12 +26,14 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="inicio.php">Inicio</a>
                         </li>
+                        <?php if($_SESSION['usuario']['rol'] == 1) { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="MisDispositivos.php">Mis Dispositivos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="MisReportes.php">Reportes de Soporte</a>
                         </li>
+                        <?php } else if($_SESSION['usuario']['rol'] == 2) {?>
                         <!-- Comienzan las vistas del administrador -->
                         <li class="nav-item">
                             <a class="nav-link" href="usuarios.php">Usuarios</a>
@@ -36,15 +44,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="reportes.php">Reportes</a>
                         </li>
-                    
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Usuario
+                        <?php } ?>
+                        <li class="nav-item dropdown" >
+                            <a style="color:blue" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Usuario:<?php echo $_SESSION['usuario']['nombre']; ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Editar datos</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Salir</a></li>
+                                <li><a class="dropdown-item" href="../procesos/usuarios/login/salir.php">Salir</a></li>
                                 
                             </ul>
                         </li>
