@@ -85,7 +85,7 @@
                 </td>
                 <td>
                     <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalActualizarUsuarios" 
-                    onclick="obtenerDatosUsuario(<?php echo $mostrar['idUsuario'] ?>)">
+                    onclick="obtenerDatosUsuario('<?php echo $mostrar['idUsuario'] ?>')">
                         Editar
                     </button>
                 </td>

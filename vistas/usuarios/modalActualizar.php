@@ -10,7 +10,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input type="text" id="idUsuario" name="idUsuario" hidden>
+                <input type="hidden" id="idUsuario" name="idUsuario">
                     <div class="row">
                         <div class="col-sm-4">
                             <label for="paternou">Apellido Paterno</label>
@@ -70,7 +70,7 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button  class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalAgregarUsuarios">Actualizar</button>
+                <button type="submit" class="btn btn-warning">Actualizar</button>
             </div>
         </div>
     </div>
