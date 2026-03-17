@@ -28,7 +28,8 @@
 
 
 
-<table class="table table-sm">
+
+<table class="table table-sm table-striped table-hover dt-responsive nowrap" id="tablaUsuariosDataTable" style="width:100%">
     <thead>
         <th>Apellido Paterno</th>
         <th>Apellido Materno</th>
@@ -38,9 +39,10 @@
         <th>Telefono</th>
         <th>Correo</th>
         <th>Usuario</th>
+         <th>Ubicacion</th>
         <th>Reset Password</th>
         <th>Cambiar Rol</th>
-        <th>Ubicacion</th>
+        <th>Activar</th>
         <th>Editar</th>
         <th>Eliminar</th>
     </thead>
@@ -59,6 +61,7 @@
                 <td><?php echo $mostrar['telefono']; ?></td>
                 <td><?php echo $mostrar['correo']; ?></td>
                 <td><?php echo $mostrar['nombreUsuario']; ?></td>
+                <td><?php echo $mostrar['ubicacion']; ?></td>
                 <td>
                     <button class="btn btn-success btn-sm">
                         Cambiar Password
@@ -69,7 +72,23 @@
                         Cambiar Rol
                     </button>
                 </td>
-                <td><?php echo $mostrar['ubicacion']; ?></td>
+                <td>
+                    <?php 
+                        if($mostrar['estatus'] == 1) {
+                    ?>
+                    <button class="btn btn-info btn-sm">
+                        Activar
+                    </button>
+                    <?php 
+                         }else{
+                     ?>
+                     <button class="btn btn-info btn-sm">
+                        Inactivo
+                    </button>
+                     <?php       
+                         }
+                    ?>
+                </td>
                 <td>
                     <button class="btn btn-warning btn-sm">
                         Editar
@@ -85,3 +104,15 @@
     
 
 </table>
+
+<script>
+    $(document).ready(function(){
+        $('#tablaUsuariosDataTable').DataTable({
+            pagingType: "simple_numbers",
+            responsive: true,
+            language: {
+                url: "https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"
+            }
+        });
+    });
+</script>
