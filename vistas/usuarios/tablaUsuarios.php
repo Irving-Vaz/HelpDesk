@@ -35,13 +35,12 @@
         <th>Apellido Materno</th>
         <th>Nombre</th>
         <th>Edad</th>
-        <th>Sexo</th>
         <th>Telefono</th>
         <th>Correo</th>
         <th>Usuario</th>
          <th>Ubicacion</th>
+        <th>Sexo</th>
         <th>Reset Password</th>
-        <th>Cambiar Rol</th>
         <th>Activar</th>
         <th>Editar</th>
         <th>Eliminar</th>
@@ -57,19 +56,14 @@
                 <td><?php echo $mostrar['materno']; ?></td>
                 <td><?php echo $mostrar['nombrePersona']; ?></td>
                 <td><?php echo $mostrar['fechaNacimiento']; ?></td>
-                <td><?php echo $mostrar['sexo']; ?></td>
                 <td><?php echo $mostrar['telefono']; ?></td>
                 <td><?php echo $mostrar['correo']; ?></td>
                 <td><?php echo $mostrar['nombreUsuario']; ?></td>
                 <td><?php echo $mostrar['ubicacion']; ?></td>
+                <td><?php echo $mostrar['sexo']; ?></td>
                 <td>
                     <button class="btn btn-success btn-sm">
                         Cambiar Password
-                    </button>
-                </td>
-                <td>
-                    <button class="btn btn-primary btn-sm">
-                        Cambiar Rol
                     </button>
                 </td>
                 <td>
@@ -90,7 +84,7 @@
                     ?>
                 </td>
                 <td>
-                    <button class="btn btn-warning btn-sm">
+                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalActualizarUsuarios">
                         Editar
                     </button>
                 </td>
