@@ -38,7 +38,7 @@
         <th>Telefono</th>
         <th>Correo</th>
         <th>Usuario</th>
-         <th>Ubicacion</th>
+        <th>Ubicacion</th>
         <th>Sexo</th>
         <th>Reset Password</th>
         <th>Activar</th>
@@ -84,7 +84,8 @@
                     ?>
                 </td>
                 <td>
-                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalActualizarUsuarios">
+                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalActualizarUsuarios" 
+                    onclick="obtenerDatosUsuario(<?php echo $mostrar['idUsuario'] ?>)">
                         Editar
                     </button>
                 </td>
