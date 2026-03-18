@@ -22,3 +22,36 @@ function asignarEquipo(){
     });
     return false;
 }
+
+function eliminarAsignacion(idAsignacion){
+    Swal.fire({
+        title: "¿Estas seguro de eliminar este registro?",
+        text: "Una vez confirmada la accion, no hay recuperacion de datos!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type:"POST",
+                data:"idAsignacion=" + idAsignacion,
+                url:"../procesos/asignacion/eliminarAsignacion.php",
+                success:function(respuesta){
+                    if (respuesta == 1) {
+                            $('#tablaAsignacionesLoad').load('asignacion/tablaAsignacion.php');
+                            Swal.fire(":D","Eliminado con exito","success");
+                    }else{
+                            Swal.fire(":D","Eliminacion fallida" + respuesta,"error");
+                    }
+                }
+            });
+        }
+    });
+    
+    return false;
+
+}
+
+
