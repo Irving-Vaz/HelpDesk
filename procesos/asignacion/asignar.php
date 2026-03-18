@@ -7,7 +7,7 @@
                     'modelo'=> $_POST['modelo'], 
                     'descripcion'=> $_POST['descripcion'], 
                     'memoria' => $_POST['memoria'], 
-                    'discoDuro' => $_POST['discoDuro'], 
+                    'disco_duro' => $_POST['discoDuro'], 
                     'procesador'=> $_POST['procesador']
     );
 
