@@ -1,7 +1,7 @@
-<!-- Modal -->
-        <div class="modal fade" id="modalAsignarEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+<form method="POST" id="frmAsignaEquipo" onsubmit="return asignarEquipo()">
+    <div class="modal fade" id="modalAsignarEquipo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Asignar equipo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -10,14 +10,30 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <label>Nombre de persona</label>
+                            <?php 
+                                $sql = "SELECT id_persona, CONCAT(paterno, ' ', materno, ' ', nombre) AS nombre 
+                                        FROM t_persona ORDER BY paterno";
+                                $respuesta = mysqli_query($conexion, $sql);
+                            ?>
                             <select name="idPersona" id="idPersona" class="form-control" required>
-                                <option value=""></option>
+                                <option value="">Selecciona</option>
+                                <?php while($mostrar = mysqli_fetch_array($respuesta)) { ?>
+                                    <option value="<?php echo $mostrar['id_persona']; ?>"> <?php echo $mostrar['nombre']; ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="col-sm-6">
                             <label>Tipo de equipo</label>
+                            <?php 
+                                // CORRECCIÓN 1: Quitamos el '*' sobrante después de 'nombre'
+                                $sql = "SELECT id_equipo, nombre FROM t_cat_equipo ORDER BY nombre";
+                                $respuesta = mysqli_query($conexion, $sql);
+                            ?>
                             <select name="idEquipo" id="idEquipo" class="form-control" required>
-                                <option value=""></option>
+                                <option value="">Selecciona</option>
+                                <?php while($mostrar = mysqli_fetch_array($respuesta)){?>
+                                    <option value="<?php echo $mostrar['id_equipo'];?>"><?php echo $mostrar['nombre'];?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -36,7 +52,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col sm-12">
+                        <div class="col-sm-12">
                             <label for="descripcion">Descripcion</label>
                             <textarea name="descripcion" id="descripcion" class="form-control"></textarea>
                         </div>
@@ -57,9 +73,10 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Asignar</button>
                 </div>
             </div>
         </div>
+    </div>
+</form>
