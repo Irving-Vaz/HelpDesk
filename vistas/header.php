@@ -33,7 +33,7 @@
                             <a class="nav-link" href="MisDispositivos.php">Mis Dispositivos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="MisReportes.php">Reportes de Soporte</a>
+                            <a class="nav-link" href="MisReportes.php">Reportes Soporte</a>
                         </li>
                         <?php } else if($_SESSION['usuario']['rol'] == 2) {?>
                         <!-- Comienzan las vistas del administrador -->
