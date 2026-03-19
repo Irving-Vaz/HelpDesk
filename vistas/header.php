@@ -48,13 +48,16 @@
                         <?php } else if($_SESSION['usuario']['rol'] == 2) {?>
                         <!-- Comienzan las vistas del administrador -->
                         <li class="nav-item">
-                            <a class="nav-link" href="usuarios.php">Usuarios</a>
+                            <a class="nav-link" href="usuarios.php">
+                                <span class="fas fa-users"></span> Usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="asignaciones.php">Asignaciones</a>
+                            <a class="nav-link" href="asignaciones.php">
+                                <span class="fas fa-tasks"></span> Asignaciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="reportes.php">Reportes</a>
+                            <a class="nav-link" href="reportes.php">
+                                <span class="fas fa-file-signature"></span> Reportes</a>
                         </li>
                         <?php } ?>
                         <li class="nav-item dropdown" >
@@ -64,10 +67,11 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" 
                                     data-bs-target="#modalActualizarDatosPersonales" onclick="obtenerDatosPersonalesInicio('<?php echo $_SESSION['usuario']['id']; ?>')">
-                                    Editar datos
+                                   <span class="fas fa-user-edit"></span> Editar datos
                                 </a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="../procesos/usuarios/login/salir.php">Salir</a></li>
+                                <li><a class="dropdown-item" href="../procesos/usuarios/login/salir.php">
+                                    <span class="fas fa-sign-out-alt"></span>Salir</a></li>
                                 
                             </ul>
                         </li>
