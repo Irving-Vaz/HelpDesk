@@ -94,6 +94,27 @@
 <script>
     $(document).ready(function(){
         $('#tablaReportesAdminDataTable').DataTable({
+            responsive : true,
+        dom: "<'row mb-3'<'col-sm-12 col-md-6'B><'col-sm-12 col-md-6'f>>" +
+             "<'row'<'col-sm-12'tr>>" +
+             "<'row mt-3'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 d-flex justify-content-end'p>>",
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: '<i class="fas fa-file-excel"></i> Excel',
+                className: 'btn btn-success'
+            },
+            {
+                extend: 'pdf',
+                text: '<i class="far fa-file-pdf"></i> PDF',
+                className: 'btn btn-danger'
+            },
+            {
+                extend: 'print',
+                text: '<i class="fas fa-print"></i> Imprimir',
+                className: 'btn btn-dark'
+            }
+        ],
         "language": {
             "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
         }
