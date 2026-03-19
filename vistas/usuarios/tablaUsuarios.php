@@ -62,7 +62,7 @@
                 <td><?php echo $mostrar['ubicacion']; ?></td>
                 <td><?php echo $mostrar['sexo']; ?></td>
                 <td>
-                    <button class="btn btn-success btn-sm">
+                    <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalResetPassword" onclick="agregarIdUsuarioReset(<?php echo $mostrar['idUsuario'] ?>)">
                         Cambiar Password
                     </button>
                 </td>

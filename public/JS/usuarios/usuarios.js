@@ -66,3 +66,26 @@ function actualizarUsuario(){
     });
     return false;
 }
+
+function agregarIdUsuarioReset(idUsuario) {
+        $('#idUsuarioReset').val(idUsuario);
+}
+
+function resetPassword() {
+    $.ajax({
+        type: "POST",
+        data: $('#frmActualizarPassword').serialize(),
+        url:"../procesos/usuarios/extras/resetPassword.php",
+        success:function(respuesta){
+            respuesta = respuesta.trim();
+            if(respuesta == 1){
+                $('#modalResetPassword').modal('hide');
+                Swal.fire(":D","Cambio de password con exito","success");
+            }else{
+                Swal.fire(":(","Error al actualizar" + respuesta,"error");
+            }
+        }
+
+    });
+    return false;
+}
