@@ -86,6 +86,11 @@
 
 <script>
     $(document).ready(function(){
-        $('#tablaReportesClienteDataTable').DataTable();
+        $('#tablaReportesClienteDataTable').DataTable({
+            responsive : true,
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+        }
+        });
     })
 </script>
