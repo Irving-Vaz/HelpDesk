@@ -1,6 +1,10 @@
 <?php
 
     session_start();
+    if (!isset($_SESSION['usuario'])) {
+        header("location:../index.html");
+        exit();
+    }
 
 ?>
 
@@ -19,21 +23,27 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
         <div class="container">
-            <a class="navbar-brand" href="inicio.php">Help - Desk</a>
+            <a class="navbar-brand" href="inicio.php">
+                <img src="../public/img/logoicono.ico" width="30%">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="inicio.php">Inicio</a>
+                            <a class="nav-link" href="inicio.php">
+                            <span class="fas fa-home"></span>   Inicio
+                            </a>
                         </li>
                         <?php if($_SESSION['usuario']['rol'] == 1) { ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="MisDispositivos.php">Mis Dispositivos</a>
+                            <a class="nav-link" href="MisDispositivos.php">
+                                <span class="fas fa-mobile"></span>Mis Dispositivos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="MisReportes.php">Reportes Soporte</a>
+                            <a class="nav-link" href="MisReportes.php">
+                                <span class="fas fa-file-signature"></span>Reportes Soporte</a>
                         </li>
                         <?php } else if($_SESSION['usuario']['rol'] == 2) {?>
                         <!-- Comienzan las vistas del administrador -->
@@ -49,10 +59,13 @@
                         <?php } ?>
                         <li class="nav-item dropdown" >
                             <a style="color:blue" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Usuario:<?php echo $_SESSION['usuario']['nombre']; ?>
+                              <span class="fas fa-user-tie"></span>  Usuario:<?php echo $_SESSION['usuario']['nombre']; ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Editar datos</a></li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" 
+                                    data-bs-target="#modalActualizarDatosPersonales" onclick="obtenerDatosPersonalesInicio('<?php echo $_SESSION['usuario']['id']; ?>')">
+                                    Editar datos
+                                </a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="../procesos/usuarios/login/salir.php">Salir</a></li>
                                 
@@ -63,3 +76,7 @@
             </div>
         </div>
     </nav>
+
+    <?php 
+        include "inicio/modalActualizarDatosPersonales.php";
+    ?>
