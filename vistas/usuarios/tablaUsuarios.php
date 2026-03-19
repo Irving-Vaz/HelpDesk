@@ -70,13 +70,15 @@
                     <?php 
                         if($mostrar['estatus'] == 1) {
                     ?>
-                    <button class="btn btn-info btn-sm">
+                    <button class="btn btn-success btn-sm" 
+                    onclick="cambioEstatusUsuario(<?php echo $mostrar['idUsuario']; ?>, <?php echo $mostrar['estatus']; ?>)">
                         Activar
                     </button>
                     <?php 
-                         }else{
+                         }else if($mostrar['estatus'] == 0){ 
                      ?>
-                     <button class="btn btn-info btn-sm">
+                     <button class="btn btn-danger btn-sm" 
+                     onclick="cambioEstatusUsuario(<?php echo $mostrar['idUsuario']; ?>, <?php echo $mostrar['estatus']; ?>)">
                         Inactivo
                     </button>
                      <?php       
