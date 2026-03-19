@@ -35,7 +35,7 @@
 
 
 
-<table class="table table-sm table-bordered dt-responsive nowrap" style="width:100%" id="tablaAsignacionDataTable" id="tablaReportesClienteDataTable">
+<table class="table table-sm table-bordered dt-responsive nowrap" style="width:100%" id="tablaReportesClienteDataTable">
     <thead>
         <th>#</th>
         <th>Persona</th>
@@ -67,7 +67,15 @@
             </td>
             <td><?php echo $mostrar['solucion'];?></td>
             <td>
-                <button class="btn btn-danger btn-sm">Eliminar</button>
+                <?php
+                    if ($mostrar['solucion'] == "") {
+                ?>
+                    <button class="btn btn-danger btn-sm" onclick="eliminarReporteCliente(<?php echo $mostrar['idReporte']; ?>)">
+                        Eliminar
+                    </button>
+                <?php
+                    }
+                ?>
             </td>
         </tr>
     <?php
