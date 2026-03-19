@@ -91,9 +91,13 @@
                         Editar
                     </button>
                 </td>
-                <td><button class="btn btn-danger btn-sm">
+
+                <td>
+                <button class="btn btn-danger btn-sm"
+                onclick="eliminarUsuario(<?php echo $mostrar['idUsuario']; ?>, <?php echo $mostrar['idPersona']; ?> )">
                         Eliminar
                     </button>
+                
                 </td>
             </tr>
             <?php  } ?>
