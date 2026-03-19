@@ -32,3 +32,8 @@ function eliminarReporteAdmin(idReporte) {
     
     return false;
 }
+
+function obtenerDatosSolucion(idReporte) {
+
+
+}

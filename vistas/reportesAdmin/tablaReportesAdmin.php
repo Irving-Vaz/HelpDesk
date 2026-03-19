@@ -9,9 +9,9 @@
                 reporte.id_reporte AS idReporte,
                 reporte.id_usuario AS idUsuario,
                 CONCAT(persona.paterno,
-                        '',
+                        ' ',
                         persona.materno,
-                        '',
+                        ' ',
                         persona.nombre) AS nombrePersona,
                 equipo.id_equipo AS idEquipo,
                 equipo.nombre as nombreEquipo,
@@ -64,7 +64,14 @@
                 echo $cadenaEstatus;
                 ?>
             </td>
-            <td><?php echo $mostrar['solucion'];?></td>
+            <td>
+                <button class="btn btn-info btn-sm"
+                            onclick="obtenerDatosSolucion('<?php echo $mostrar['idReporte']; ?>')" 
+                            data-bs-toggle="modal" data-bs-target="#modalAgregarSolucionReporte">
+                        Solucion
+                    </button>    
+                <?php echo $mostrar['solucion'];?>
+            </td>
             <td>
                 <?php
                     if ($mostrar['solucion'] == "") {
